@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/teacher.css">
+</head>
+<body>
+    <div class="toast-container" id="toastContainer"></div>
+    <header class="topbar">
+        <div class="topbar-left"><i class="fas fa-chalkboard-teacher"></i><span>Teacher Dashboard</span></div>
+        <div class="topbar-right">
+            <span class="user-name" id="userName">-</span>
+            <button class="logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Log Out</button>
+        </div>
+    </header>
+    <main class="dashboard">
+        <div class="date-bar">
+            <label for="dateInput">Date:</label>
+            <input type="date" id="dateInput">
+        </div>
+
+        <!-- Add Student Section -->
+        <div class="add-student-card">
+            <h3><i class="fas fa-user-plus"></i> Add Student</h3>
+            <div class="add-student-row">
+                <input type="text" id="newStudentName" placeholder="Student name" maxlength="100">
+                <button class="add-btn" id="addStudentBtn"><i class="fas fa-plus"></i> Add</button>
+            </div>
+        </div>
+
+        <!-- Students List -->
+        <div class="students-list-card">
+            <h3><i class="fas fa-users"></i> Students</h3>
+            <div class="students-list" id="studentsList"></div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-row">
+            <div class="stat-card"><div class="stat-num" id="statTotal">0</div><div class="stat-label">Total</div></div>
+            <div class="stat-card present"><div class="stat-num" id="statPresent">0</div><div class="stat-label">Present</div></div>
+            <div class="stat-card absent"><div class="stat-num" id="statAbsent">0</div><div class="stat-label">Absent</div></div>
+            <div class="stat-card late"><div class="stat-num" id="statLate">0</div><div class="stat-label">Late</div></div>
+        </div>
+
+        <!-- Attendance Table -->
+        <div class="table-card">
+            <h2><i class="fas fa-list-check"></i> Attendance</h2>
+            <div class="empty-state" id="emptyState">
+                <i class="fas fa-user-graduate"></i>
+                <p>Add students first to take attendance</p>
+            </div>
+            <table id="attendanceTable" style="display:none;">
+                <thead>
+                    <tr><th>#</th><th>Student Name</th><th>Status</th></tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+            <button class="save-btn" id="saveBtn" style="display:none;"><i class="fas fa-save"></i> Save Attendance</button>
+        </div>
+    </main>
+    <script src="/static/js/teacher.js"></script>
+</body>
+</html>
